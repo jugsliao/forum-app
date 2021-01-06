@@ -1,2 +1,6 @@
 # forum app
-forum app with questions posted on the questionhub and answers added to the questions
+an app similar to quora where questions are posted and they can be answered.
+additional features to be added in the future:
+- number of votes
+- date posted and by which user
+- total number of answers
