@@ -1,0 +1,16 @@
+{% extends 'first_app/base.html' %}
+
+{% block title %}
+newanswer
+{% endblock %}
+
+  {% block content %}
+    <h1>Question:</h1>
+    <h1><a href="{% url 'first_app:question' question.id %}">{{question}}</a></h1>
+    <p>Answer:</p>
+    <form action="{% url 'first_app:newanswer' question.id %}" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+  {% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'first_app/base.html' %}
+
+{% block title %}
+editanswer
+{% endblock %}
+
+  {% block content %}
+      <p><a href="{% url 'first_app:question' question.id %}">{{question}}</a></p>
+      <p>Edit your answer:</p>
+      <form action="{% url 'first_app:editanswer' answer.id %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" value="Submit">
+      </form>
+  {% endblock content %}

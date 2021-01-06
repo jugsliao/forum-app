@@ -1,0 +1,18 @@
+{% extends 'first_app/base.html' %}
+
+{% block title %}
+Questionhub
+{% endblock %}
+
+  {% block content %}
+    <h1>Welcome to questionhub</h1>
+    <p>Post a question: </p>
+    <a class="btn btn-primary" href="{% url 'first_app:newquestion' %}" role="button">Add question</a>
+    <p>Questions:</p>
+    <ul>
+      {% for q in questions %}
+        <li><a href="{% url 'first_app:question' q.id %}">{{q}}</a></li>
+        <br>
+      {% endfor %}
+    </ul>
+  {% endblock content %}

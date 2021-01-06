@@ -1,0 +1,27 @@
+{% extends 'first_app/base.html' %}
+
+{% block title %}
+question
+{% endblock %}
+
+  {% block content %}
+      <h1>{{question}}</h1>
+      <hr>
+      <p>Answers:</p>
+    {% for a in answer %}
+      <ul>
+        <li>
+        <div class="answer">
+          <p>{{a.text}}</p>
+          <p>
+            <a href="{% url 'first_app:editanswer' a.id %}"><button type="button" class="btn btn-success">Edit</button></a>
+            <a href="{% url 'first_app:deleteanswer' a.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+          </p>
+          <hr>
+        </div>
+        </li>
+      </ul>
+      {% endfor %}
+    <p>Add your answer:</p>
+    <a class="btn btn-primary" href="{% url 'first_app:newanswer' question.id %}" role="button">Add answer</a>
+  {% endblock content %}
